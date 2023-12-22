@@ -4,6 +4,27 @@ body {
     font-size: 14px;
     font-family: Helvetica, Arial, sans-serif;
     line-height: 1.2;
-    color: #333;
-    background-color: #fafafa;
+    color: #fff;
+    background-color: #212121;
+}
+
+* {
+    scrollbar-color: #bdbdbd transparent;
+    transition: scrollbar-color .2s;
+    scrollbar-width: thin;
+}
+
+*::-webkit-scrollbar {
+    width: 16px;
+    height: 16px;
+}
+
+*::-webkit-scrollbar-track {
+    background-color: #ececec;
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: #e63338;
+    border-radius: 8px;
+    margin: 1px;
 }
