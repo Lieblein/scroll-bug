@@ -1,0 +1,39 @@
+.title {
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.options {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    user-select: none;
+}
+
+.option {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    color: #999;
+    transition: color .1s;
+}
+
+.option:hover,
+.checked {
+    color: #333;
+}
+
+.checked {
+    font-weight: bold;
+}
+
+.option:hover.checked {
+    color: #999;
+}
+
+.option-main {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}

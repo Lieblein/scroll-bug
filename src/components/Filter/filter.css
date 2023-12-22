@@ -1,0 +1,13 @@
+.filter {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    background-color: #fff;
+    border: 1px solid #ececec;
+    border-radius: 4px;
+    padding: 24px;
+    width: 240px;
+    height: 200px;
+    overflow-y: scroll;
+    margin: 40px auto;
+}

@@ -28,8 +28,8 @@ export default function FilterProperty<Property extends keyof IFilter>(props: Re
         const filterPropertyValue = filter[property];
     
         const newFilterPropertyValue = checked
-            ? filterPropertyValue.filter((optionId) => optionId !== id)
-            : filterPropertyValue.concat(id);
+            ? filterPropertyValue.concat(id)
+            : filterPropertyValue.filter((optionId) => optionId !== id);
 
             onChangeFilter({
                 ...filter,
@@ -44,25 +44,29 @@ export default function FilterProperty<Property extends keyof IFilter>(props: Re
             </div>
             <div className='options'>
                 {
-                    options.map(({ id, text, count }) => (
-                        <label
-                            key={ id }
-                            className='option'
-                        >
-                            <div>
-                                <input
-                                    type='checkbox'
-                                    checked={ filter[property].includes(id) }
-                                    value={ id }
-                                    onChange={ changeChecked }
-                                />
-                                { text }
-                            </div>
-                            <div>
-                                { count }
-                            </div>
-                        </label>
-                    ))
+                    options.map(({ id, text, count }) => {
+                        const checked = filter[property].includes(id);
+
+                        return (
+                            <label
+                                key={ id }
+                                className={ `option ${checked ? 'checked' : ''}` }
+                            >
+                                <div className='option-main'>
+                                    <input
+                                        type='checkbox'
+                                        checked={ checked }
+                                        value={ id }
+                                        onChange={ changeChecked }
+                                    />
+                                    { text }
+                                </div>
+                                <div>
+                                    { count }
+                                </div>
+                            </label>
+                        );
+                    })
                 }
             </div>
         </div>
