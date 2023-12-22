@@ -13,7 +13,7 @@ const ALL_RM_OPTIONS: IFilterOption[] = [
     { id: 1, text: 'Важный гусь', count: 1 },
     { id: 2, text: 'Щедрый свинтус', count: 5 },
     { id: 3, text: 'Неутомимый сурикат', count: 2 },
-    { id: 4, text: 'Вдохновенный опоссум', count: 80 },
+    { id: 4, text: 'Вдохновленный опоссум', count: 80 },
     { id: 5, text: 'Ужасный дикобраз', count: 7 },
     { id: 6, text: 'Пылкая муха', count: 1 },
     { id: 7, text: 'Союзный аллигатор', count: 99 },
