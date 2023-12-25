@@ -6,6 +6,9 @@ import {
 } from '../../../types/filter';
 import './filter-property.css';
 
+const GAP = 8;
+const ITEM_HEIGHT = 19;
+
 interface IProps<Property extends keyof IFilter> {
     filter: IFilter;
     onChangeFilter: (filter: IFilter) => void;
@@ -44,7 +47,7 @@ export default function FilterProperty<Property extends keyof IFilter>(props: Re
             </div>
             <div
                 className='options'
-                style={{ height: options.length * 19 + (options.length - 1) * 8 }}
+                style={{ height: options.length * ITEM_HEIGHT + (options.length - 1) * GAP }}
             >
                 {
                     options.map(({ id, text, count }, index) => {
@@ -54,7 +57,7 @@ export default function FilterProperty<Property extends keyof IFilter>(props: Re
                             <label
                                 key={ id }
                                 className={ `option ${checked ? 'checked' : ''}` }
-                                style={{ top: index * (19 + 8) }}
+                                style={{ top: index * (ITEM_HEIGHT + GAP) }}
                             >
                                 <div className='option-main'>
                                     <input
