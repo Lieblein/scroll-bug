@@ -44,12 +44,12 @@ export default function FilterProperty<Property extends keyof IFilter>(props: Re
             </div>
             <div className='options'>
                 {
-                    options.map(({ id, text, count }) => {
+                    options.map(({ id, text, count }, index) => {
                         const checked = filter[property].includes(id);
 
                         return (
                             <label
-                                key={ id }
+                                key={ index }
                                 className={ `option ${checked ? 'checked' : ''}` }
                             >
                                 <div className='option-main'>
