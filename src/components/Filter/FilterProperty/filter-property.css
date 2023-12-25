@@ -8,6 +8,7 @@
     flex-direction: column;
     gap: 8px;
     user-select: none;
+    position: relative;
 }
 
 .option {
@@ -17,6 +18,9 @@
     cursor: pointer;
     color: #bdbdbd;
     transition: color .1s;
+    position: absolute;
+    left: 0;
+    right: 0;
 }
 
 .option:hover,

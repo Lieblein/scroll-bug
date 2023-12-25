@@ -42,15 +42,19 @@ export default function FilterProperty<Property extends keyof IFilter>(props: Re
             <div className='title'>
                 { title }
             </div>
-            <div className='options'>
+            <div
+                className='options'
+                style={{ height: options.length * 19 + (options.length - 1) * 8 }}
+            >
                 {
-                    options.map(({ id, text, count }) => {
+                    options.map(({ id, text, count }, index) => {
                         const checked = filter[property].includes(id);
 
                         return (
                             <label
                                 key={ id }
                                 className={ `option ${checked ? 'checked' : ''}` }
+                                style={{ top: index * (19 + 8) }}
                             >
                                 <div className='option-main'>
                                     <input
