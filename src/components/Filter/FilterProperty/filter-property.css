@@ -17,6 +17,7 @@
     cursor: pointer;
     color: #bdbdbd;
     transition: color .1s;
+    overflow-anchor: none;
 }
 
 .option:hover,
