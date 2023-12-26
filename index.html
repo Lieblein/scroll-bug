@@ -6,5 +6,157 @@
     </head>
     <body>
         <div id="react-app"></div>
+
+        <div class='filter'>
+            <div class='property'>
+                <div class='title'>
+                    RM
+                </div>
+                <div class='options' id='rm'>
+                    <label class='option'>
+                        <div class='option-main'>
+                            <input
+                                type='checkbox'
+                                value='1'
+                            />
+                            Важный гусь
+                        </div>
+                        <div>
+                            1
+                        </div>
+                    </label>
+                    <label class='option'>
+                        <div class='option-main'>
+                            <input
+                                type='checkbox'
+                                value='2'
+                            />
+                            Щедрый свинтус
+                        </div>
+                        <div>
+                            5
+                        </div>
+                    </label>
+                    <label class='option'>
+                        <div class='option-main'>
+                            <input
+                                type='checkbox'
+                                value='3'
+                            />
+                            Неутомимый сурикат
+                        </div>
+                        <div>
+                            2
+                        </div>
+                    </label>
+                </div>
+            </div>
+            <div class='property'>
+                <div class='title'>
+                    Level
+                </div>
+                <div class='options' id='level'>
+                    <label class='option'>
+                        <div class='option-main'>
+                            <input
+                                type='checkbox'
+                                value='4'
+                            />
+                            L0
+                        </div>
+                        <div>
+                            0
+                        </div>
+                    </label>
+                    <label class='option'>
+                        <div class='option-main'>
+                            <input
+                                type='checkbox'
+                                value='1'
+                            />
+                            L1
+                        </div>
+                        <div>
+                            0
+                        </div>
+                    </label>
+                    <label class='option'>
+                        <div class='option-main'>
+                            <input
+                                type='checkbox'
+                                value='2'
+                            />
+                            L2
+                        </div>
+                        <div>
+                            20
+                        </div>
+                    </label>
+                    <label class='option'>
+                        <div class='option-main'>
+                            <input
+                                type='checkbox'
+                                value='2'
+                            />
+                            L3
+                        </div>
+                        <div>
+                            5
+                        </div>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <script>
+            const rmOptionsContainer = document.getElementById('rm');
+            const ALL_RM_OPTIONS = [
+                { id: 1, text: 'Важный гусь', count: 1 },
+                { id: 2, text: 'Щедрый свинтус', count: 5 },
+                { id: 3, text: 'Неутомимый сурикат', count: 2 },
+                { id: 4, text: 'Вдохновленный опоссум', count: 80 },
+                { id: 5, text: 'Ужасный дикобраз', count: 7 },
+                { id: 6, text: 'Пылкая муха', count: 1 },
+                { id: 7, text: 'Союзный аллигатор', count: 99 },
+                { id: 8, text: 'Лавандовый слон', count: 3 },
+                { id: 9, text: 'Буйная черепаха', count: 11 },
+                { id: 10, text: 'Королевская капибара', count: 1 },
+            ];
+            const RM_OPTIONS_COUNT = 3;
+            let rmOptionsIndex = 2;
+
+            const levelOptionsContainer = document.getElementById('level');
+            const levelCheckboxes = levelOptionsContainer.querySelectorAll('input[type="checkbox"]');
+            levelCheckboxes.forEach((levelCheckbox) => {
+                levelCheckbox.addEventListener('change', () => {
+                    rmOptionsIndex = rmOptionsIndex + 1;
+                    if (rmOptionsIndex >= ALL_RM_OPTIONS.length) {
+                        rmOptionsIndex = 0;
+                    }
+
+                    const optionToDelete = rmOptionsContainer.querySelector('.option');
+                    rmOptionsContainer.removeChild(optionToDelete);
+
+                    const newOptionData = ALL_RM_OPTIONS[rmOptionsIndex];
+
+                    const label = document.createElement('label');
+                    label.className = 'option';
+
+                    const optionMain = document.createElement('div');
+                    optionMain.className = 'option-main';
+                    optionMain.textContent = newOptionData.text;
+
+                    const input = document.createElement('input');
+                    input.setAttribute('type', 'checkbox');
+
+                    const count = document.createElement('div');
+                    count.textContent = newOptionData.count;
+
+                    optionMain.insertBefore(input, optionMain.firstChild);
+                    label.appendChild(optionMain);
+                    label.appendChild(count);
+                    rmOptionsContainer.appendChild(label);
+                });
+            });
+        </script>
     </body>
 </html>
